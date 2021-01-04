@@ -1,4 +1,4 @@
-package com.hari.sprintMasterClass;
+package com.hari.springMasterClass;
 
 import java.util.Arrays;
 

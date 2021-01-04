@@ -1,7 +1,10 @@
-package com.hari.sprintMasterClass;
+package com.hari.springMasterClass;
 
 import java.util.Arrays;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class LinearSort implements SortAlgorithm {
 	
 	private boolean verbose;

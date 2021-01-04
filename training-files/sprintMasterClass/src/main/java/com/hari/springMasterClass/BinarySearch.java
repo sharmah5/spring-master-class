@@ -1,13 +1,18 @@
-package com.hari.sprintMasterClass;
+package com.hari.springMasterClass;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BinarySearch {
 
-	private boolean verbose;
+	private boolean verbose = false;
+	
+	@Autowired
 	private SortAlgorithm sortAlgorithm;
 	
-	public BinarySearch(boolean verbose, SortAlgorithm sortAlgorithm) {
+	public BinarySearch(SortAlgorithm sortAlgorithm) {
 		super();
-		this.verbose = verbose;
 		this.sortAlgorithm = sortAlgorithm;
 	}
 
