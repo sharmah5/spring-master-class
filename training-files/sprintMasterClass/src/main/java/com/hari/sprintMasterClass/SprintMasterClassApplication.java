@@ -11,7 +11,7 @@ public class SprintMasterClassApplication {
 		
 		BinarySearch binSearch = new BinarySearch();
 		
-		int indexOfInteger = binSearch.binarySearch(new int[] {1, 7, 1, 85, 0, 2, 20, 4}, 0);
+		int indexOfInteger = binSearch.binarySearch(new int[] {1, 7, 1, 85, 0, 2, 20, 4}, 0, true);
 		
 		if (indexOfInteger == -1) {
 			System.out.println("\nInteger not found.");
