@@ -2,10 +2,17 @@ package com.hari.sprintMasterClass;
 
 public class BinarySearch {
 
-	private static boolean verbose;
+	private boolean verbose;
+	private SortAlgorithm sortAlgorithm;
 	
+	public BinarySearch(boolean verbose, SortAlgorithm sortAlgorithm) {
+		super();
+		this.verbose = verbose;
+		this.sortAlgorithm = sortAlgorithm;
+	}
+
 	private void arrayPrinter(int[] array, int lowerBound, int upperBound) {
-		if (verbose) {
+		if (this.verbose) {
 			System.out.print("[");
 			
 			for (int i = lowerBound; i <= upperBound; i++) {
@@ -49,16 +56,14 @@ public class BinarySearch {
 		}
 	}
 	
-	public int binarySearch(int[] numbers, int numToSearch, boolean vbse) {
-		verbose = vbse;
+	public int binarySearch(int[] numbers, int numToSearch) {
 		
 		//Step 1: Sort the array
 		//Step 2: Search the array for the number
 		//Step 3: Return the index of the number in the array
 		if (!checkSorted(numbers)) {
-			BinarySort binarySortAlg = new BinarySort();
-			
-			int[] sortedList = binarySortAlg.binarySort(numbers, vbse);
+			int[] sortedList = sortAlgorithm.sort(numbers, this.verbose);
+			System.out.println(sortAlgorithm);
 			
 			System.out.println("Searching list.");
 			arrayPrinter(numbers, 0, numbers.length - 1);

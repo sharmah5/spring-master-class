@@ -7,11 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SprintMasterClassApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SprintMasterClassApplication.class, args);
+//		SpringApplication.run(SprintMasterClassApplication.class, args);
 		
-		BinarySearch binSearch = new BinarySearch();
+		SortAlgorithm sortAlgorithm = new LinearSort();
+		boolean verbose = false;
 		
-		int indexOfInteger = binSearch.binarySearch(new int[] {1, 7, 1, 85, 0, 2, 20, 4}, 0, true);
+		BinarySearch binSearch = new BinarySearch(verbose, sortAlgorithm);
+		
+		int indexOfInteger = binSearch.binarySearch(new int[] {1, 7, 1, 85, 0, 2, 20, 4}, 0);
 		
 		if (indexOfInteger == -1) {
 			System.out.println("\nInteger not found.");

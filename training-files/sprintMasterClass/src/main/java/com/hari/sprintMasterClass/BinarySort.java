@@ -2,9 +2,9 @@ package com.hari.sprintMasterClass;
 
 import java.util.Arrays;
 
-public class BinarySort {
+public class BinarySort implements SortAlgorithm {
 
-	private static boolean verbose;
+	private boolean verbose;
 	
 	private void arrayPrinter(int[] array, int lowerBound, int upperBound) {
 		if (verbose) {
@@ -100,7 +100,7 @@ public class BinarySort {
 			
 	}
 	
-	public int[] binarySort(int[] numbers, boolean vbse) {
+	public int[] sort(int[] numbers, boolean vbse) {
 		verbose = vbse;
 		
 		System.out.println("Sorting list.");
