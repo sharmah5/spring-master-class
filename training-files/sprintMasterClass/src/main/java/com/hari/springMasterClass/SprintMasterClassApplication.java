@@ -32,5 +32,4 @@ public class SprintMasterClassApplication {
 			System.out.println("\nInteger found at index " + indexOfInteger + " when list is sorted.");
 		}
 	}
-
 }

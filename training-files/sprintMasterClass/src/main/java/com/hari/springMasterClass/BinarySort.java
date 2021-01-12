@@ -2,6 +2,11 @@ package com.hari.springMasterClass;
 
 import java.util.Arrays;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class BinarySort implements SortAlgorithm {
 
 	private boolean verbose;
