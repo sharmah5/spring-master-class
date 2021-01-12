@@ -11,10 +11,20 @@ public class BinarySearch {
 	@Autowired
 	private SortAlgorithm sortAlgorithm;
 	
-	public BinarySearch(SortAlgorithm sortAlgorithm) {
-		super();
-		this.sortAlgorithm = sortAlgorithm;
+	// We can remove the constructor and the auto wiring will still be performed.
+//	public BinarySearch(SortAlgorithm sortAlgorithm) {
+//		super();
+//		this.sortAlgorithm = sortAlgorithm;
+//	}
+
+	public SortAlgorithm getSortAlgorithm() {
+		return sortAlgorithm;
 	}
+
+	// Even the setter is not required to perform auto wiring.
+//	public void setSortAlgorithm(SortAlgorithm sortAlgorithm) {
+//		this.sortAlgorithm = sortAlgorithm;
+//	}
 
 	private void arrayPrinter(int[] array, int lowerBound, int upperBound) {
 		if (this.verbose) {
