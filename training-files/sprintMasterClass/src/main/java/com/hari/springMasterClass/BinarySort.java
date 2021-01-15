@@ -2,11 +2,13 @@ package com.hari.springMasterClass;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
+//@Primary
+@Qualifier("binary")
 public class BinarySort implements SortAlgorithm {
 
 	private boolean verbose;

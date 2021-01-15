@@ -2,9 +2,11 @@ package com.hari.springMasterClass;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+@Qualifier("Linear")
 public class LinearSort implements SortAlgorithm {
 	
 	private boolean verbose;

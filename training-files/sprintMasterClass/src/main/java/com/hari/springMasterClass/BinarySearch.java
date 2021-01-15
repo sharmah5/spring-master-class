@@ -1,6 +1,7 @@
 package com.hari.springMasterClass;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -9,7 +10,8 @@ public class BinarySearch {
 	private boolean verbose = false;
 	
 	@Autowired
-	private SortAlgorithm linearSort;
+	@Qualifier("binary")
+	private SortAlgorithm sortAlgorithm;
 	
 	// We can remove the constructor and the auto wiring will still be performed.
 //	public BinarySearch(SortAlgorithm sortAlgorithm) {
@@ -18,7 +20,7 @@ public class BinarySearch {
 //	}
 
 	public SortAlgorithm getSortAlgorithm() {
-		return linearSort;
+		return sortAlgorithm;
 	}
 
 	// Even the setter is not required to perform auto wiring.
@@ -77,8 +79,8 @@ public class BinarySearch {
 		//Step 2: Search the array for the number
 		//Step 3: Return the index of the number in the array
 		if (!checkSorted(numbers)) {
-			int[] sortedList = linearSort.sort(numbers, this.verbose);
-			System.out.println(linearSort);
+			int[] sortedList = sortAlgorithm.sort(numbers, this.verbose);
+			System.out.println(sortAlgorithm);
 			
 			System.out.println("Searching list.");
 			arrayPrinter(numbers, 0, numbers.length - 1);
