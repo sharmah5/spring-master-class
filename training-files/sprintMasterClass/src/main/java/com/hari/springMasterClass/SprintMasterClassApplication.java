@@ -24,6 +24,11 @@ public class SprintMasterClassApplication {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassApplication.class, args);
 		BinarySearch binSearch = applicationContext.getBean(BinarySearch.class);
 		
+		// Spring beans are created as singletons. This means binSearch and binSearch2 are referencing the same instance.
+		BinarySearch binSearch2 = applicationContext.getBean(BinarySearch.class);
+		System.out.println(binSearch);
+		System.out.println(binSearch2);
+		
 		int indexOfInteger = binSearch.binarySearch(new int[] {1, 7, 1, 85, 0, 2, 20, 4}, 0);
 		
 		if (indexOfInteger == -1) {
