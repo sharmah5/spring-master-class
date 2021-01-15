@@ -10,7 +10,7 @@ public class BinarySearch {
 	private boolean verbose = false;
 	
 	@Autowired
-	@Qualifier("binary")
+	@Qualifier("linear")
 	private SortAlgorithm sortAlgorithm;
 	
 	// We can remove the constructor and the auto wiring will still be performed.

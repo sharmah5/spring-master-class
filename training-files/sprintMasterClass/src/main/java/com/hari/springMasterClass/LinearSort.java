@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("Linear")
+@Qualifier("linear")
 public class LinearSort implements SortAlgorithm {
 	
 	private boolean verbose;
