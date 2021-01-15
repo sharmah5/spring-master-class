@@ -9,7 +9,7 @@ public class BinarySearch {
 	private boolean verbose = false;
 	
 	@Autowired
-	private SortAlgorithm sortAlgorithm;
+	private SortAlgorithm linearSort;
 	
 	// We can remove the constructor and the auto wiring will still be performed.
 //	public BinarySearch(SortAlgorithm sortAlgorithm) {
@@ -18,7 +18,7 @@ public class BinarySearch {
 //	}
 
 	public SortAlgorithm getSortAlgorithm() {
-		return sortAlgorithm;
+		return linearSort;
 	}
 
 	// Even the setter is not required to perform auto wiring.
@@ -77,8 +77,8 @@ public class BinarySearch {
 		//Step 2: Search the array for the number
 		//Step 3: Return the index of the number in the array
 		if (!checkSorted(numbers)) {
-			int[] sortedList = sortAlgorithm.sort(numbers, this.verbose);
-			System.out.println(sortAlgorithm);
+			int[] sortedList = linearSort.sort(numbers, this.verbose);
+			System.out.println(linearSort);
 			
 			System.out.println("Searching list.");
 			arrayPrinter(numbers, 0, numbers.length - 1);
