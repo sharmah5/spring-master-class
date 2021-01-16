@@ -2,11 +2,12 @@ package com.hari.springMasterClass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.hari.springMasterClass.basic.BinarySearch;
+
 @SpringBootApplication
-public class SprintMasterClassApplication {
+public class SprintMasterClassBasicApplication {
 
 	public static void main(String[] args) {
 		
@@ -21,7 +22,7 @@ public class SprintMasterClassApplication {
 //		BinarySearch binSearch = new BinarySearch(verbose, sortAlgorithm);
 		
 		// We retrieve the beans from the Spring Application Context.
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassApplication.class, args);
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassBasicApplication.class, args);
 		BinarySearch binSearch = applicationContext.getBean(BinarySearch.class);
 		
 		// Spring beans are created as singletons. This means binSearch and binSearch2 are referencing the same instance.
