@@ -9,11 +9,7 @@ import org.springframework.stereotype.Component;
 @Qualifier("linear")
 public class LinearSort implements SortAlgorithm {
 	
-	private boolean verbose;
-	
 	public int[] sort(int[] numbers, boolean vbse) {
-		
-		verbose = vbse;
 		
 		Arrays.sort(numbers);
 		

@@ -5,25 +5,24 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 
-import com.hari.componentscan.ComponentPersonDAO;
+import com.hari.springMasterClass.cdi.SomeCDIBusiness;
 
 @SpringBootApplication
-@ComponentScan("com.hari.componentscan")
-public class SprintMasterClassComponentScanApplication {
+public class SprintMasterClassCDIApplication {
 
 	// We want to use a logger instead of always printing out to the console.
 	// We need the variable to be static, since we want to use it in the main static method.
 	// static variable are all capital.
-	private static Logger LOGGER = LoggerFactory.getLogger(SprintMasterClassComponentScanApplication.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(SprintMasterClassCDIApplication.class);
 	
 	public static void main(String[] args) {
 		
 		// We retrieve the beans from the Spring Application Context.
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassComponentScanApplication.class, args);
-		ComponentPersonDAO componentPersonDao = applicationContext.getBean(ComponentPersonDAO.class);
+		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassCDIApplication.class, args);
+		SomeCDIBusiness business = applicationContext.getBean(SomeCDIBusiness.class);
 		
-		LOGGER.info("{}", componentPersonDao);
+		LOGGER.info("{} doa-{}", business, business.getSomeCDIBusinessDAO());
+
 	}
 }
