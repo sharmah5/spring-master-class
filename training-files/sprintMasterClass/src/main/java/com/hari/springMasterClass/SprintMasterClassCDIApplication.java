@@ -2,7 +2,6 @@ package com.hari.springMasterClass;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,10 +22,12 @@ public class SprintMasterClassCDIApplication {
 		// We retrieve the beans from the Spring Application Context.
 //		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassCDIApplication.class, args);
 
-		ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(SprintMasterClassCDIApplication.class);
-		SomeCDIBusiness business = applicationContext.getBean(SomeCDIBusiness.class);
-		
-		LOGGER.info("{} doa-{}", business, business.getSomeCDIBusinessDAO());
+		try (AnnotationConfigApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SprintMasterClassCDIApplication.class)) {
+			SomeCDIBusiness business = applicationContext.getBean(SomeCDIBusiness.class);
+			
+			LOGGER.info("{} doa-{}", business, business.getSomeCDIBusinessDAO());
+		}
 
 	}
 }

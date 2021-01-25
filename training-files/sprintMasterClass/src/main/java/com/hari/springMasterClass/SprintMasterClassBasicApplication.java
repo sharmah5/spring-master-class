@@ -1,6 +1,5 @@
 package com.hari.springMasterClass;
 
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +23,7 @@ public class SprintMasterClassBasicApplication {
 //		BinarySearch binSearch = new BinarySearch(verbose, sortAlgorithm);
 		
 		// We retrieve the beans from the Spring Application Context.
-		ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(SprintMasterClassBasicApplication.class);
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SprintMasterClassBasicApplication.class);
 //		ConfigurableApplicationContext applicationContext =	SpringApplication.run(SprintMasterClassBasicApplication.class, args);
 		BinarySearch binSearch = applicationContext.getBean(BinarySearch.class);
 		
@@ -40,5 +39,7 @@ public class SprintMasterClassBasicApplication {
 		} else {
 			System.out.println("\nInteger found at index " + indexOfInteger + " when list is sorted.");
 		}
+		
+		applicationContext.close();
 	}
 }

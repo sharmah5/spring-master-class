@@ -2,7 +2,6 @@ package com.hari.springMasterClass;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,10 +22,11 @@ public class SprintMasterClassComponentScanApplication {
 		// We retrieve the beans from the Spring Application Context.
 //		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassComponentScanApplication.class, args);
 		
-		ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(SprintMasterClassComponentScanApplication.class);
-
-		ComponentPersonDAO componentPersonDao = applicationContext.getBean(ComponentPersonDAO.class);
-		
-		LOGGER.info("{}", componentPersonDao);
+		try(AnnotationConfigApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SprintMasterClassComponentScanApplication.class)) {
+			ComponentPersonDAO componentPersonDao = applicationContext.getBean(ComponentPersonDAO.class);
+			
+			LOGGER.info("{}", componentPersonDao);
+		}
 	}
 }

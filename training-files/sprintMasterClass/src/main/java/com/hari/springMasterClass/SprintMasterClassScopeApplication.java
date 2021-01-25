@@ -2,7 +2,6 @@ package com.hari.springMasterClass;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,16 +22,17 @@ public class SprintMasterClassScopeApplication {
 		// We retrieve the beans from the Spring Application Context.
 //		ConfigurableApplicationContext applicationContext = SpringApplication.run(SprintMasterClassScopeApplication.class, args);
 		
-		ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(SprintMasterClassScopeApplication.class);
-		PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
-		PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
-		
-		LOGGER.info("{}", personDao);
-		LOGGER.info("{}", personDao.getJdbcConnection());
-		LOGGER.info("{}", personDao.getJdbcConnection());
+		try(AnnotationConfigApplicationContext applicationContext = 
+				new AnnotationConfigApplicationContext(SprintMasterClassScopeApplication.class)) {
+			PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
+			PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
+			
+			LOGGER.info("{}", personDao);
+			LOGGER.info("{}", personDao.getJdbcConnection());
+			LOGGER.info("{}", personDao.getJdbcConnection());
 
-		LOGGER.info("{}", personDao2);
-		LOGGER.info("{}", personDao2.getJdbcConnection());
-
+			LOGGER.info("{}", personDao2);
+			LOGGER.info("{}", personDao2.getJdbcConnection());
+		}
 	}
 }
